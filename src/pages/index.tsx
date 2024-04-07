@@ -2,7 +2,6 @@ import { Header } from "@/components/header";
 import { Tournament } from "@/components/tournament";
 import { Box, Button, Flex, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import prisma from '@/libs/prisma';
 
 export default function Home() {
   return (
@@ -13,14 +12,11 @@ export default function Home() {
         <Tournament />
         <Tournament />
 
-        <Button colorScheme="green" variant={'outline'} >
-          <Link href={'https://youtube.com'}>Criar</Link>
+        <Button colorScheme="green" variant={"outline"}>
+          <Link href={"https://youtube.com"}>Criar</Link>
         </Button>
 
-        <Box w='200px' h='199px' >
-
-        </Box>
-        
+        <Box w="200px" h="199px"></Box>
       </HStack>
     </Flex>
   );

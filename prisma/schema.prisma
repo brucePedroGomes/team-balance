@@ -20,16 +20,58 @@ enum Role {
 
 model User {
   id    String @id
+  name  String
   email String @unique
+  image String
   role  Role
+
+  UserTeam UserTeam[]
+  Registed Registed[]
 }
 
 model Tournament {
   id    String @id @default(uuid())
   name  String
   image String
+
+  finishedAt DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  Teams    Team[]
+  userId   String
+  Registed Registed[]
+}
+
+model Registed {
+  User   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  Tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  tournamentId String
+
+  createdAt DateTime @default(now())
+
+  @@id([userId, tournamentId])
 }
 
 model Team {
-  id String @id @default(uuid())
+  id    String  @id @default(uuid())
+  name  String
+  image String?
+
+  Tournament   Tournament? @relation(fields: [tournamentId], references: [id])
+  tournamentId String?
+
+  UserTeam UserTeam[]
+}
+
+model UserTeam {
+  User   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  Team   Team   @relation(fields: [teamId], references: [id])
+  teamId String
+
+  @@id([userId, teamId])
 }

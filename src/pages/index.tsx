@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { Tournament } from "@/components/tournament";
 import { Box, Button, Flex, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import prisma from '@/libs/prisma';
 
 export default function Home() {
   return (

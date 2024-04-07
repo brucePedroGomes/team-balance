@@ -25,8 +25,8 @@ model User {
   image String
   role  Role
 
-  UserTeam UserTeam[]
-  Registed Registed[]
+  UserTeam     UserTeam[]
+  Registration Registration[]
 }
 
 model Tournament {
@@ -38,12 +38,12 @@ model Tournament {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
-  Teams    Team[]
-  userId   String
-  Registed Registed[]
+  Teams        Team[]
+  userId       String
+  Registration Registration[]
 }
 
-model Registed {
+model Registration {
   User   User   @relation(fields: [userId], references: [id])
   userId String
 

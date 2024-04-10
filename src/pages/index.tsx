@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { LoginButton } from "@/components/login-button";
 import { Tournament } from "@/components/tournament";
 import prisma from "@/libs/prisma";
 import { Box, Button, Flex, HStack, Text } from "@chakra-ui/react";
@@ -20,6 +21,8 @@ export default function Home(
         <Button colorScheme="green" variant={"outline"}>
           <Link href={"https://youtube.com"}>Criar</Link>
         </Button>
+
+        <LoginButton />
 
         <Box w="200px" h="199px"></Box>
       </HStack>

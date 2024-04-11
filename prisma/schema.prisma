@@ -19,11 +19,11 @@ enum Role {
 }
 
 model User {
-  id    String @id
+  id    String  @id
   name  String
-  email String @unique
-  image String
-  role  Role
+  email String  @unique
+  image String?
+  role  Role    @default(USER)
 
   UserTeam     UserTeam[]
   Registration Registration[]

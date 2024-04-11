@@ -10,10 +10,18 @@ export function LoginButton() {
       </>
     );
   }
+
+  async function onLog() {
+    const res = await signIn()
+    console.log(res)
+    return res
+}
+    
+
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <button onClick={onLog}>Sign in</button>
     </>
   );
 }
